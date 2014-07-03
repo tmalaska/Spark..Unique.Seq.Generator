@@ -26,8 +26,9 @@ public class ValidateSeqGeneration {
 		String master = args[0];
 		String inputPath = args[1];
 
+		
 		JavaSparkContext jsc = new JavaSparkContext(master,
-				"ValidateSeqGeneration");
+				"ValidateSeqGeneration", null, "SeqGenerator.jar");
 
 		MinMaxAccumulator minMaxAccumulator = new MinMaxAccumulator();
 		Accumulable<MinMaxAccumulator, Long> accumulable = jsc.accumulable(

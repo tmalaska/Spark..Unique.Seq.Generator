@@ -33,7 +33,7 @@ public class UniqueSeqGenerator
     	String inputPath = args[1];
     	String outputPath = args[2];
     	
-    	JavaSparkContext jsc = new JavaSparkContext(master, "UniqueSeqGenerator");
+    	JavaSparkContext jsc = new JavaSparkContext(master, "UniqueSeqGenerator", null, "SeqGenerator.jar");
     	
     	SeqMapCounter seqMapCounter = new SeqMapCounter();
     	Accumulable<SeqMapCounter, String> accumulable = jsc.accumulable(seqMapCounter, new SeqMapCounterAccumulableParam());
